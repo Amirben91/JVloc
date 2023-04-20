@@ -1,0 +1,26 @@
+<nav>
+    <h1>JV.LOC</h1>
+    <link rel="stylesheet" href="style.css">
+    <div class="onglets">
+        <a class="link" href="Index1.php">Accueil</a>
+        <a class="link" href="equipementgaming.php">Equipement gaming</a>
+        <a class="link" href="bibliotheque.php">Bibliotheque</a>
+        <?php
+        session_start();
+        if(isset($_SESSION["username"])) { // Vérifie si l'utilisateur est connecté
+        echo '<a class="link" href="logout.php">Se déconnecter</a>'; // Affiche le lien de déconnexion si l'utilisateur est connecté
+        echo '<p>Bienvenue, ' . $_SESSION["username"] . '</p>'; // Affiche le nom d'utilisateur de l'utilisateur connecté
+        } else {
+        echo '<a class="link" href="login.php">Se connecter</a>'; // Affiche l'onglet "Se connecter" si l'utilisateur n'est pas connecté
+        }
+        ?>
+        <form>
+            <input type="search" placeholder="Rechercher">
+        </form>
+
+        <p><i class="far fa-heart"></i></p>
+        <p><i class="fas fa-shopping-cart"></i></p>
+
+    </div>
+</nav>
+
